@@ -121,8 +121,8 @@ void insert_at_end(void) {
         temp = start;
         while (temp->next != NULL) {
             temp = temp->next;
-            temp->next = newnode;
         }
+        temp->next = newnode;
     }
     printf("\n");
 }
