@@ -121,8 +121,8 @@ void insert_at_end(void) {
         temp = start;
         while (temp->next != NULL) {
             temp = temp->next;
-            temp->next = newnode;
         }
+        temp->next = newnode;
     }
     printf("\n");
 }
@@ -214,6 +214,26 @@ void delete_at_mid(void) {
     }
 }
 
+void displayRecursion(node* head) {
+    if(head == NULL) {
+        return;
+    }
+    else {
+        printf("%d ", head->data);
+        displayRecursion(head->next);
+    }
+}
+
+void displayRecursionReverse(node* head) {
+    if(head == NULL) {
+        return;
+    }
+    else {
+        displayRecursionReverse(head->next);
+        printf("%d ", head->data);
+    }
+}
+
 int main(void) {
     int ch, n;
     while (1) {
@@ -270,6 +290,9 @@ int main(void) {
 
         case 11:
             exit(0);
+
+        case 12: displayRecursion(start); printf("\n"); break;
+        case 13: displayRecursionReverse(start); printf("\n"); break;
         }
     }
 }
